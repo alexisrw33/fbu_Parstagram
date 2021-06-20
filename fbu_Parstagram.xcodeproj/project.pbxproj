@@ -3,19 +3,20 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		9CA74A26267EA705009C8A89 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CA74A25267EA705009C8A89 /* AppDelegate.m */; };
 		9CA74A29267EA705009C8A89 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CA74A28267EA705009C8A89 /* SceneDelegate.m */; };
-		9CA74A2C267EA705009C8A89 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CA74A2B267EA705009C8A89 /* ViewController.m */; };
 		9CA74A2F267EA705009C8A89 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9CA74A2D267EA705009C8A89 /* Main.storyboard */; };
 		9CA74A31267EA707009C8A89 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9CA74A30267EA707009C8A89 /* Assets.xcassets */; };
 		9CA74A34267EA707009C8A89 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9CA74A32267EA707009C8A89 /* LaunchScreen.storyboard */; };
 		9CA74A37267EA707009C8A89 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CA74A36267EA707009C8A89 /* main.m */; };
 		9CA74A41267EA708009C8A89 /* fbu_ParstagramTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CA74A40267EA708009C8A89 /* fbu_ParstagramTests.m */; };
 		9CA74A4C267EA708009C8A89 /* fbu_ParstagramUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CA74A4B267EA708009C8A89 /* fbu_ParstagramUITests.m */; };
+		9CBEF69C267FA94D00D6CE13 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CBEF69B267FA94D00D6CE13 /* LoginViewController.m */; };
+		9CBEF69F267FFBAB00D6CE13 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CBEF69E267FFBAB00D6CE13 /* HomeViewController.m */; };
 		DC96B441D0AF4A2EA5DFEBD5 /* libPods-fbu_Parstagram.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BDCB6F3E76EDE7D8B069092E /* libPods-fbu_Parstagram.a */; };
 /* End PBXBuildFile section */
 
@@ -42,8 +43,6 @@
 		9CA74A25267EA705009C8A89 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		9CA74A27267EA705009C8A89 /* SceneDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SceneDelegate.h; sourceTree = "<group>"; };
 		9CA74A28267EA705009C8A89 /* SceneDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SceneDelegate.m; sourceTree = "<group>"; };
-		9CA74A2A267EA705009C8A89 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		9CA74A2B267EA705009C8A89 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		9CA74A2E267EA705009C8A89 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		9CA74A30267EA707009C8A89 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9CA74A33267EA707009C8A89 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -55,6 +54,10 @@
 		9CA74A47267EA708009C8A89 /* fbu_ParstagramUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = fbu_ParstagramUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9CA74A4B267EA708009C8A89 /* fbu_ParstagramUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = fbu_ParstagramUITests.m; sourceTree = "<group>"; };
 		9CA74A4D267EA708009C8A89 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9CBEF69A267FA94D00D6CE13 /* LoginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		9CBEF69B267FA94D00D6CE13 /* LoginViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		9CBEF69D267FFBAB00D6CE13 /* HomeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
+		9CBEF69E267FFBAB00D6CE13 /* HomeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
 		BA629CFC65363D4D277AC8F3 /* Pods-fbu_Parstagram.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-fbu_Parstagram.debug.xcconfig"; path = "Target Support Files/Pods-fbu_Parstagram/Pods-fbu_Parstagram.debug.xcconfig"; sourceTree = "<group>"; };
 		BDCB6F3E76EDE7D8B069092E /* libPods-fbu_Parstagram.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-fbu_Parstagram.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D504DEEB9E2DF80EA7C8672A /* Pods-fbu_Parstagram.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-fbu_Parstagram.release.xcconfig"; path = "Target Support Files/Pods-fbu_Parstagram/Pods-fbu_Parstagram.release.xcconfig"; sourceTree = "<group>"; };
@@ -100,7 +103,6 @@
 				BA629CFC65363D4D277AC8F3 /* Pods-fbu_Parstagram.debug.xcconfig */,
 				D504DEEB9E2DF80EA7C8672A /* Pods-fbu_Parstagram.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -133,13 +135,15 @@
 				9CA74A25267EA705009C8A89 /* AppDelegate.m */,
 				9CA74A27267EA705009C8A89 /* SceneDelegate.h */,
 				9CA74A28267EA705009C8A89 /* SceneDelegate.m */,
-				9CA74A2A267EA705009C8A89 /* ViewController.h */,
-				9CA74A2B267EA705009C8A89 /* ViewController.m */,
 				9CA74A2D267EA705009C8A89 /* Main.storyboard */,
 				9CA74A30267EA707009C8A89 /* Assets.xcassets */,
 				9CA74A32267EA707009C8A89 /* LaunchScreen.storyboard */,
 				9CA74A35267EA707009C8A89 /* Info.plist */,
 				9CA74A36267EA707009C8A89 /* main.m */,
+				9CBEF69A267FA94D00D6CE13 /* LoginViewController.h */,
+				9CBEF69B267FA94D00D6CE13 /* LoginViewController.m */,
+				9CBEF69D267FFBAB00D6CE13 /* HomeViewController.h */,
+				9CBEF69E267FFBAB00D6CE13 /* HomeViewController.m */,
 			);
 			path = fbu_Parstagram;
 			sourceTree = "<group>";
@@ -335,9 +339,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9CA74A2C267EA705009C8A89 /* ViewController.m in Sources */,
+				9CBEF69C267FA94D00D6CE13 /* LoginViewController.m in Sources */,
 				9CA74A26267EA705009C8A89 /* AppDelegate.m in Sources */,
 				9CA74A37267EA707009C8A89 /* main.m in Sources */,
+				9CBEF69F267FFBAB00D6CE13 /* HomeViewController.m in Sources */,
 				9CA74A29267EA705009C8A89 /* SceneDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

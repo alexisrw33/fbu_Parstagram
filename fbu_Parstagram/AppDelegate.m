@@ -7,6 +7,8 @@
 
 #import "AppDelegate.h"
 #import "Parse.h"
+#import "HomeViewController.h"
+
 
 @interface AppDelegate ()
 
@@ -25,6 +27,25 @@
             }];
 
     [Parse initializeWithConfiguration:config];
+    
+//    PFObject *User = [PFObject objectWithClassName:@"User"];
+//    User[@"username"] = @1337;
+//    User[@"password"] = @"Sean Plott";
+////    gameScore[@"cheatMode"] = @NO;
+//    [User saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+//     if (succeeded) {
+//            NSLog(@"Object saved!");
+//     } else {
+//            NSLog(@"Error: %@", error.description);
+//     }
+//    }];
+    
+//    if (PFUser.currentUser) {
+//            UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+//
+//            UINavigationController *navController = [storyboard instantiateViewControllerWithIdentifier:@"TabBarViewController"];
+//            self.window.rootViewController = navController;
+//        }
     
     return YES;
 }
