@@ -67,12 +67,12 @@
 }
 
 -(void)viewDidAppear:(BOOL)animated {
-    PFUser *user = [PFUser currentUser];
-    if (user != nil) {
-        NSLog(@"Welcome back %@ 😀", user.username);
-
-        [self performSegueWithIdentifier:@"loginSegue" sender:self];
-    }
+//    PFUser *user = [PFUser currentUser];
+//    if (user != nil) {
+//        NSLog(@"Welcome back %@ 😀", user.username);
+//
+//        [self performSegueWithIdentifier:@"loginSegue" sender:self];
+//    }
 }
 
 /*

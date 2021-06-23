@@ -40,13 +40,6 @@
 //     }
 //    }];
     
-//    if (PFUser.currentUser) {
-//            UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-//
-//            UINavigationController *navController = [storyboard instantiateViewControllerWithIdentifier:@"TabBarViewController"];
-//            self.window.rootViewController = navController;
-//        }
-    
     return YES;
 }
 

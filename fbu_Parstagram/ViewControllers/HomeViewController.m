@@ -29,11 +29,16 @@
         // PFUser.current() will now be nil
     }];
     
+//    UIWindowSceneDelegate *sceneDelegate =  (UIWindowSceneDelegate *)[UIApplication sharedApplication].delegate;
+//    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+//    LoginViewController *loginViewController = [storyboard instantiateViewControllerWithIdentifier:@"LoginViewController"];
+//    sceneDelegate.window.rootViewController = loginViewController;
+    
     //segue back to LoginViewController
-    AppDelegate *appDelegate =  (AppDelegate *)[UIApplication sharedApplication].delegate;
-    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-    UINavigationController *loginViewController = [storyboard instantiateViewControllerWithIdentifier:@"LoginViewController"];
-    appDelegate.window.rootViewController = loginViewController;
+//    AppDelegate *appDelegate =  (AppDelegate *)[UIApplication sharedApplication].delegate;
+//    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+//    UINavigationController *navigationController = [storyboard instantiateViewControllerWithIdentifier:@"LoginViewController"];
+//    self.window.rootViewController = navigationController;
 }
 /*
 #pragma mark - Navigation
