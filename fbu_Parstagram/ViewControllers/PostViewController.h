@@ -6,10 +6,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <AVFoundation/AVFoundation.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface PostViewController : UIViewController
+@property (nonatomic) AVCaptureSession *captureSession;
+@property (nonatomic) AVCapturePhotoOutput *stillImageOutput;
+@property (nonatomic) AVCaptureVideoPreviewLayer *videoPreviewLayer;
 
 @end
 

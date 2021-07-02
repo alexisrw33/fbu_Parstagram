@@ -90,6 +90,40 @@
                     <view key="view" contentMode="scaleToFill" id="eBk-eW-SKS">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="zXR-O7-GnI">
+                                <rect key="frame" x="0.0" y="88" width="414" height="808"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="PostCell" rowHeight="284" id="xgu-bQ-Dqd" customClass="PostCell">
+                                        <rect key="frame" x="0.0" y="24.5" width="414" height="284"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="xgu-bQ-Dqd" id="bCu-NH-u6M">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="284"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6Pf-XD-rTm">
+                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="228"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="This is a post's text!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oUB-Kc-JXJ">
+                                                    <rect key="frame" x="20" y="236" width="374" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="postImage" destination="6Pf-XD-rTm" id="3XE-Dh-uhA"/>
+                                            <outlet property="postText" destination="oUB-Kc-JXJ" id="bZD-ry-uZq"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="3S4-4K-cMe"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
@@ -105,10 +139,13 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="tableView" destination="zXR-O7-GnI" id="deI-7O-JM8"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pzP-gi-v1X" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2616" y="68"/>
+            <point key="canvasLocation" x="2615.9420289855075" y="67.633928571428569"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="zdu-02-Ekc">
@@ -129,7 +166,7 @@
             </objects>
             <point key="canvasLocation" x="1783" y="68"/>
         </scene>
-        <!--Home-->
+        <!--Profile-->
         <scene sceneID="QcI-Uq-wbB">
             <objects>
                 <viewController id="CDw-Dv-s2Y" sceneMemberID="viewController">
@@ -139,7 +176,7 @@
                         <viewLayoutGuide key="safeArea" id="jma-7X-u0X"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Home" id="IpZ-H6-0LQ">
+                    <navigationItem key="navigationItem" title="Profile" id="IpZ-H6-0LQ">
                         <barButtonItem key="rightBarButtonItem" image="plus.app" catalog="system" id="zdN-wk-53B"/>
                     </navigationItem>
                 </viewController>

@@ -41,24 +41,6 @@
 //    }
 //}
 
-- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info {
-    
-    // Get the image captured by the UIImagePickerController
-    UIImage *originalImage = info[UIImagePickerControllerOriginalImage];
-//    UIImage *editedImage = info[UIImagePickerControllerEditedImage];
-
-    // Do something with the images (based on your use case)
-    self.imagePicked = info[UIImagePickerControllerOriginalImage];
-//    CGRectMake(0, 0, self.imageView.frame.size.width, self.imageView.frame.size.width);
-//    [self resizeImage:self.imagePicked withSize:CGRectMake(0, 0, self.imageView.frame.size.width, self.imageView.frame.size.width)];
-    self.imageView.alpha = 1;
-    self.imageView.image = self.imagePicked;
-    
-    
-    // Dismiss UIImagePickerController to go back to your original view controller
-    [self dismissViewControllerAnimated:YES completion:nil];
-}
-
 - (UIImage *)resizeImage:(UIImage *)image withSize:(CGSize)size {
     UIImageView *resizeImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, size.width, size.height)];
     
@@ -73,12 +55,44 @@
     return newImage;
 }
 
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info {
+    
+    // Get the image captured by the UIImagePickerController
+    UIImage *originalImage = info[UIImagePickerControllerOriginalImage];
+//    UIImage *editedImage = info[UIImagePickerControllerEditedImage];
+
+    // Do something with the images (based on your use case)
+    self.imagePicked = info[UIImagePickerControllerOriginalImage];
+//    CGRectMake(0, 0, self.imageView.frame.size.width, self.imageView.frame.size.width);
+//    [self resizeImage:self.imagePicked withSize:CGRectMake(0, 0, self.imageView.frame.size.width, self.imageView.frame.size.width)];
+//    CGRect frame = CGRectMake(0, 0, self.imageView.frame.size.width, self.imageView.frame.size.height);
+    UIImage *image = [self resizeImage:self.imagePicked withSize:CGSizeMake(1000, 1000)];
+    self.imageView.alpha = 1;
+    self.imageView.image = image;
+    
+
+    
+    // Dismiss UIImagePickerController to go back to your original view controller
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
 - (IBAction)onCancel:(id)sender {
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 - (IBAction)onPost:(id)sender {
+    [Post postUserImage:self.imageView.image withCaption:self.textView.text withCompletion:^(BOOL succeeded, NSError * _Nullable error) {
+        if (succeeded) {
+            NSLog(@"Post has been uploaded!");
+            [self dismissViewControllerAnimated:YES completion:nil];
+        } else {
+            NSString *errorString = [error localizedDescription];
+            NSLog(@"%@", errorString);
+        }
+    }];
 //    self.post.image = self.imagePicked.image;
+//    [self.post.imag]
 //    self.post.caption = self.textView.text;
+    
 }
 - (IBAction)onSelectImage:(id)sender {
     UIImagePickerController *imagePickerVC = [UIImagePickerController new];
