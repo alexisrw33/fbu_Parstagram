@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface PostViewController : UIViewController
+@interface PostViewController : UIViewController<UITextViewDelegate>
 @property (nonatomic) AVCaptureSession *captureSession;
 @property (nonatomic) AVCapturePhotoOutput *stillImageOutput;
 @property (nonatomic) AVCaptureVideoPreviewLayer *videoPreviewLayer;

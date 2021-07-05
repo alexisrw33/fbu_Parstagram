@@ -15,6 +15,7 @@
 @interface HomeViewController () <UITableViewDelegate, UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) NSMutableArray *posts;
+@property (strong, nonatomic) UIRefreshControl *refreshControl;
 
 @end
 
@@ -25,6 +26,12 @@
     // Do any additional setup after loading the view.
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
+    
+    self.refreshControl = [[UIRefreshControl alloc]init];
+    [self.refreshControl addTarget:self action:@selector(fetchPosts) forControlEvents:UIControlEventValueChanged];
+    self.tableView.refreshControl = self.refreshControl;
+    
+    [self fetchPosts];
 }
 - (IBAction)onLogout:(id)sender {
     [self logout];
@@ -33,6 +40,8 @@
 - (void)logout {
     [PFUser logOutInBackgroundWithBlock:^(NSError * _Nullable error) {
         // PFUser.current() will now be nil
+        [self dismissViewControllerAnimated:YES completion:nil];
+        NSLog(@"There was an error logging out:%@", error.debugDescription);
     }];
     
 //    UIWindowSceneDelegate *sceneDelegate =  (UIWindowSceneDelegate *)[UIApplication sharedApplication].delegate;
@@ -50,9 +59,9 @@
 - (void)fetchPosts {
     // construct query
     PFQuery *query = [PFQuery queryWithClassName:@"Post"];
-    [query whereKey:@"likesCount" greaterThan:@100];
+//    [query whereKey:@"likesCount" greaterThan:@100];
     [query orderByDescending:@"createdAt"];
-    [query includeKey:@"author"];
+//    [query includeKey:@"author"];
     query.limit = 20;
 
     // fetch data asynchronously
@@ -61,6 +70,8 @@
             // do something with the array of object returned by the call
 //            Post *newPost = [Post new];
             self.posts = posts;
+            [self.tableView reloadData];
+            [self.refreshControl endRefreshing];
             
 
             // get the current user and assign it to "author" field. "author" field is now of Pointer type
@@ -101,8 +112,9 @@
 
 - (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
     PostCell *cell = [tableView dequeueReusableCellWithIdentifier:@"PostCell" forIndexPath:indexPath];
-    NSDictionary *post = self.posts[indexPath.row];
-    cell.postText.text = post[@"caption"];
+    Post *post = self.posts[indexPath.row];
+    
+    [cell setPost:post];
     
     return cell;
 }

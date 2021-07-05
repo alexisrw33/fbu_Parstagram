@@ -6,6 +6,9 @@
 //
 
 #import "PostCell.h"
+#import "Parse/Parse.h"
+#import "UIImageView+AFNetworking.h"
+#import "Post.h"
 
 @implementation PostCell
 
@@ -18,6 +21,15 @@
     [super setSelected:selected animated:animated];
 
     // Configure the view for the selected state
+    
+}
+
+-(void)setPost:(Post *)post {
+    self.postText.text = post[@"caption"];
+    PFFileObject *image = post[@"image"];
+    NSURL *imageURL = [NSURL URLWithString:image.url];
+    [self.postImage setImageWithURL:imageURL];
+
 }
 
 @end

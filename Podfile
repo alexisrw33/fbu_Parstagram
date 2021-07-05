@@ -7,6 +7,8 @@ target 'fbu_Parstagram' do
 
   # Pods for fbu_Parstagram
    pod 'Parse'
+   pod 'AFNetworking'
+   pod 'DateTools'
 end
 
 post_install do |installer|

@@ -22,6 +22,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    self.textView.delegate = self;
+    self.textView.text = @"write a caption...";
+    self.textView.textColor = [UIColor lightGrayColor];
 }
 
 //-(void)takeAPicture {
@@ -109,6 +112,24 @@
 //        NSLog(@"Camera 🚫 available so we will use photo library instead");
 //        imagePickerVC.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
 //    }
+}
+
+- (void)textViewDidBeginEditing:(UITextView *)textView
+{
+    if ([self.textView.text isEqualToString:@"write a caption..."]) {
+         self.textView.text = @"";
+         self.textView.textColor = [UIColor blackColor]; //optional
+    }
+    [self.textView becomeFirstResponder];
+}
+
+- (void)textViewDidEndEditing:(UITextView *)textView
+{
+    if ([self.textView.text isEqualToString:@""]) {
+        self.textView.text = @"write a caption...";
+        self.textView.textColor = [UIColor lightGrayColor]; //optional
+    }
+    [self.textView resignFirstResponder];
 }
 
 /*

@@ -65,6 +65,9 @@
 - (IBAction)onSignUp:(id)sender {
     [self registerUser];
 }
+- (IBAction)onTap:(id)sender {
+    [self.view endEditing:YES];
+}
 
 -(void)viewDidAppear:(BOOL)animated {
 //    PFUser *user = [PFUser currentUser];
