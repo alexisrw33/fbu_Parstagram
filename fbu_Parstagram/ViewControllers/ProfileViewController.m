@@ -6,6 +6,8 @@
 //
 
 #import "ProfileViewController.h"
+#import "QuartzCore/QuartzCore.h"
+#import "Parse/Parse.h"
 
 @interface ProfileViewController ()
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
@@ -13,6 +15,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *name;
 @property (weak, nonatomic) IBOutlet UILabel *descriptionLabel;
 @property (weak, nonatomic) IBOutlet UILabel *postNumber;
+@property (weak, nonatomic) IBOutlet UIButton *editButton;
 
 @end
 
@@ -20,9 +23,25 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
     
+    // Do any additional setup after loading the view.
+    self.editButton.layer.borderWidth = 2.0f;
+    self.editButton.layer.borderColor = [UIColor blackColor].CGColor;
 }
+
+-(void)getUserData {
+    PFUser *user = PFUser.currentUser;
+    [user fetchIfNeededInBackgroundWithBlock:^(PFObject * _Nullable object, NSError * _Nullable error) {
+        self.name.text = user[@"fullname"];
+    }];
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
+    [self getUserData]; // will be fired every time
+}
+
 - (IBAction)onEditButton:(id)sender {
 }
 
