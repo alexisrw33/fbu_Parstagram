@@ -10,6 +10,7 @@
 #import "UIImageView+AFNetworking.h"
 #import "CommentCell.h"
 #import "Post.h"
+#import "Comment.h"
 
 @interface CommentViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (strong, nonatomic) NSMutableArray *commentsArray;
@@ -33,7 +34,7 @@
 }
 
 - (void)didTapComment {
-//    [post addComment: @"adasd"];
+//    [Post addComment: self.commentTextField.text];
 }
 
 -(void)fetchComments {
@@ -42,14 +43,14 @@
     [query orderByDescending:@"createdAt"];
 //    [query includeKey:@"author"];
     query.limit = 20;
-    [query whereKey:@"post" equalTo:self.post];
+    [query whereKey:@"post" equalTo: self.post];
 
     // fetch data asynchronously
     [query findObjectsInBackgroundWithBlock:^(NSArray *comments, NSError *error) {
         if (comments != nil) {
             // do something with the array of object returned by the call
 //            Post *newPost = [Post new];
-            self.commentsArray = comments;
+            self.commentsArray = [comments copy];
             [self.tableView reloadData];
             
             // get the current user and assign it to "author" field. "author" field is now of Pointer type
@@ -58,6 +59,10 @@
             NSLog(@"%@", error.localizedDescription);
         }
     }];
+}
+- (IBAction)onPostButton:(id)sender {
+    [self didTapComment];
+    
 }
 
 /*
@@ -72,6 +77,9 @@
 
 - (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
     CommentCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CommentCell"];
+    
+    Comment *comment = self.commentsArray[indexPath.row];
+    
     
     
 

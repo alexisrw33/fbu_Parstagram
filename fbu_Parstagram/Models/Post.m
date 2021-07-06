@@ -36,17 +36,17 @@
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     formatter.dateFormat = @"E MMM d HH:mm:ss Z y";
     newPost.dateStamp = [formatter stringFromDate:timeStamp];
-    newPost.userLikes = [NSMutableArray new];
+//    newPost.userLikes = [NSMutableArray new];
     
     [newPost saveInBackgroundWithBlock: completion];
 }
 
-- (void)addComment:(NSString *)text {
++ (void)addComment:(NSString *)text withCompletion: (PFBooleanResultBlock  _Nullable)completion{
     Comment *newComment = [Comment new];
     newComment.text = text;
     newComment.user = PFUser.currentUser;
     newComment.post = self;
-    [newComment saveInBackground];
+    [newComment saveInBackgroundWithBlock:completion];
 }
 
 + (PFFileObject *)getPFFileFromImage: (UIImage * _Nullable)image {

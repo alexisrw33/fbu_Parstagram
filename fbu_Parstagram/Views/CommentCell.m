@@ -7,6 +7,9 @@
 
 #import "CommentCell.h"
 #import "Parse/Parse.h"
+#import "Comment.h"
+#import "Post.h"
+#import "UIImageView+AFNetworking.h"
 
 @implementation CommentCell
 
@@ -19,6 +22,17 @@
     [super setSelected:selected animated:animated];
 
     // Configure the view for the selected state
+}
+
+-(void)setComment:(Comment *)comment {
+    PFUser *user = [PFUser currentUser];
+    [user fetchInBackgroundWithBlock:^(PFObject * _Nullable object, NSError * _Nullable error) {
+        PFFileObject *profileImage = user[@"profile_image"];
+        NSURL *profileImageURL = [NSURL URLWithString:profileImage.url];
+//        [self.profileImageView setImageWithURL:profileImageURL];
+        self.nameLabel.text = user[@"username"];
+        self.bodyLabel.text = comment[@"text"];
+    }];
 }
 
 -(void)fetchComments {
