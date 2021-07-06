@@ -19,8 +19,8 @@
     
     // Do any additional setup after loading this header view.
     self.editButton.layer.borderWidth = 2.0f;
-    self.editButton.layer.borderColor = [UIColor blackColor].CGColor;
-    
+    self.editButton.layer.borderColor = [UIColor whiteColor].CGColor;
+
     self.profileImage.layer.cornerRadius = self.profileImage.frame.size.height / 2;
     self.profileImage.layer.masksToBounds = YES;
     

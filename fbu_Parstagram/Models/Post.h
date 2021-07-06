@@ -25,6 +25,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (void) postUserImage: ( UIImage * _Nullable )image withCaption: ( NSString * _Nullable )caption withCompletion: (PFBooleanResultBlock  _Nullable)completion;
 
+- (void) addComment: (NSString *)text;
+
 @end
 
 NS_ASSUME_NONNULL_END

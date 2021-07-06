@@ -31,6 +31,10 @@
     
     self.user = PFUser.currentUser;
     
+    
+    self.profilePhoto.layer.cornerRadius = self.profilePhoto.frame.size.height / 2;
+    self.profilePhoto.layer.masksToBounds = YES;
+    
     self.bioTextView.delegate = self;
     
     [self.user fetchInBackgroundWithBlock:^(PFObject * _Nullable object, NSError * _Nullable error) {

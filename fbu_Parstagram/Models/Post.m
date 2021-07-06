@@ -6,6 +6,7 @@
 //
 
 #import "Post.h"
+#import "Comment.h"
 
 @implementation Post
 
@@ -38,6 +39,14 @@
     newPost.userLikes = [NSMutableArray new];
     
     [newPost saveInBackgroundWithBlock: completion];
+}
+
+- (void)addComment:(NSString *)text {
+    Comment *newComment = [Comment new];
+    newComment.text = text;
+    newComment.user = PFUser.currentUser;
+    newComment.post = self;
+    [newComment saveInBackground];
 }
 
 + (PFFileObject *)getPFFileFromImage: (UIImage * _Nullable)image {

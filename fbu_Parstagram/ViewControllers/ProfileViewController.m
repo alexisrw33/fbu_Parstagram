@@ -10,9 +10,15 @@
 #import "Parse/Parse.h"
 #import "UIImageView+AFNetworking.h"
 #import "ProfileHeaderView.h"
+#import "Post.h"
+#import "UserProfileCell.h"
 
-@interface ProfileViewController ()
+@interface ProfileViewController ()<UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
+
+@property (strong, nonatomic) PFUser *user;
+
+@property (strong, nonatomic) NSMutableArray *userPosts;
 
 //@property (strong, nonatomic) UIImageView *imageForProfile;
 
@@ -28,9 +34,44 @@
     self.collectionView.delegate = self;
     self.collectionView.dataSource = self;
     
+    UICollectionViewFlowLayout *layout = (UICollectionViewFlowLayout *) self.collectionView.collectionViewLayout;
+      
+    layout.minimumInteritemSpacing = 0;
+    layout.minimumLineSpacing = 0;
+      
+    CGFloat postersPerLine = 3;
+    CGFloat itemWidth = ((self.collectionView.frame.size.width - (layout.minimumInteritemSpacing))/ postersPerLine);
+    CGFloat itemHeight = itemWidth ;
+    layout.itemSize = CGSizeMake(itemWidth, itemHeight);
     
-    
-//    CGRect *frame = CGRectMake(self.collectionVie, <#CGFloat y#>, <#CGFloat width#>, <#CGFloat height#>)
+    self.user = [PFUser currentUser];
+}
+
+-(void)fetchUserPosts {
+    // construct query
+    PFQuery *query = [PFQuery queryWithClassName:@"Post"];
+//    [query whereKey:@"likesCount" greaterThan:@100];
+    [query orderByDescending:@"createdAt"];
+    // [query includeKey:@"author"]; // gets the profile photo for each user
+    [query whereKey:@"author" equalTo:self.user];
+    query.limit = 20;
+
+    // fetch data asynchronously
+    [query findObjectsInBackgroundWithBlock:^(NSArray *posts, NSError *error) {
+        if (posts != nil) {
+            // do something with the array of object returned by the call
+//            Post *newPost = [Post new];
+            self.userPosts = [posts copy];
+            [self.collectionView reloadData];
+//            [self.refreshControl endRefreshing];
+            
+
+            // get the current user and assign it to "author" field. "author" field is now of Pointer type
+//            newPost.author = [PFUser currentUser];
+        } else {
+            NSLog(@"%@", error.localizedDescription);
+        }
+    }];
     
 }
 
@@ -49,7 +90,7 @@
     [super viewWillAppear:animated];
     
     // reload the Profile Header View whenever this VC appears
-    [self.collectionView reloadData];
+    [self fetchUserPosts];
 }
 
 /*
@@ -63,12 +104,18 @@
 */
 
 - (nonnull __kindof UICollectionViewCell *)collectionView:(nonnull UICollectionView *)collectionView cellForItemAtIndexPath:(nonnull NSIndexPath *)indexPath {
-    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"UserProfileCell" forIndexPath:indexPath];
+    UserProfileCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"UserProfileCell" forIndexPath:indexPath];
+    Post *post = self.userPosts[indexPath.item];
+    
+    PFFileObject *image = post[@"image"];
+    NSURL *imageURL = [NSURL URLWithString:image.url];
+    [cell.postImage setImageWithURL:imageURL];
+    
     return cell;
 }
 
 - (NSInteger)collectionView:(nonnull UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return 100;
+    return self.userPosts.count;
 }
 
 - (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath {
@@ -80,6 +127,10 @@
 //    headerView.frame.size.height = 300;
     return headerView;
     
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [self fetchUserPosts];
 }
 
 

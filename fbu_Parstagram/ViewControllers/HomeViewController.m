@@ -12,6 +12,7 @@
 #import "Post.h"
 #import "PostCell.h"
 #import "CommentCell.h"
+#import "CommentViewController.h"
 
 @interface HomeViewController () <UITableViewDelegate, UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -41,9 +42,12 @@
 - (void)logout {
     [PFUser logOutInBackgroundWithBlock:^(NSError * _Nullable error) {
         // PFUser.current() will now be nil
-        [self dismissViewControllerAnimated:YES completion:nil];
-        NSLog(@"There was an error logging out:%@", error.debugDescription);
+//        [self dismissViewControllerAnimated:YES completion:nil];
+        if (error) {
+            NSLog(@"There was an error logging out:%@", error.debugDescription);
+        }
     }];
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (void)fetchPosts {
@@ -90,15 +94,20 @@
         }
     }];
 }
-/*
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
+    if ([segue.identifier isEqual:@"commentSegue"]) {
+        CommentCell *cell = sender; // which cell  we clcked on -> which Post we clicked on
+        NSIndexPath *indexPath = [self.tableView indexPathForCell:cell];
+        Post *post = self.posts[indexPath.section];
+        CommentViewController *commentViewController = segue.destinationViewController.childViewControllers[0];
+        commentViewController.post = post;
+    }
     // Pass the selected object to the new view controller.
 }
-*/
 
 - (nonnull UITableViewCell *)tableView:(nonnull UITableView *)tableView cellForRowAtIndexPath:(nonnull NSIndexPath *)indexPath {
     if(indexPath.row == 0) {
@@ -122,7 +131,7 @@
 }
 
 - (NSInteger)tableView:(nonnull UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 1;
+    return 2;
 }
 
 @end

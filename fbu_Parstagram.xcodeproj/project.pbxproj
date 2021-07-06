@@ -12,6 +12,8 @@
 		9C3CED872693942900A4ECB5 /* EditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C3CED862693942900A4ECB5 /* EditViewController.m */; };
 		9C3CED922693BEDA00A4ECB5 /* CommentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C3CED912693BEDA00A4ECB5 /* CommentCell.m */; };
 		9C3CED952693CF5300A4ECB5 /* ProfileHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C3CED942693CF5300A4ECB5 /* ProfileHeaderView.m */; };
+		9C3CED982694112900A4ECB5 /* CommentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C3CED972694112900A4ECB5 /* CommentViewController.m */; };
+		9C3CED9B2694165900A4ECB5 /* Comment.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C3CED9A2694165900A4ECB5 /* Comment.m */; };
 		9C85B43E268A64780013B603 /* PostCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9C85B43D268A64780013B603 /* PostCell.m */; };
 		9CA74A26267EA705009C8A89 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CA74A25267EA705009C8A89 /* AppDelegate.m */; };
 		9CA74A29267EA705009C8A89 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9CA74A28267EA705009C8A89 /* SceneDelegate.m */; };
@@ -56,6 +58,10 @@
 		9C3CED912693BEDA00A4ECB5 /* CommentCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CommentCell.m; sourceTree = "<group>"; };
 		9C3CED932693CF5300A4ECB5 /* ProfileHeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProfileHeaderView.h; sourceTree = "<group>"; };
 		9C3CED942693CF5300A4ECB5 /* ProfileHeaderView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProfileHeaderView.m; sourceTree = "<group>"; };
+		9C3CED962694112900A4ECB5 /* CommentViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CommentViewController.h; sourceTree = "<group>"; };
+		9C3CED972694112900A4ECB5 /* CommentViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CommentViewController.m; sourceTree = "<group>"; };
+		9C3CED992694165900A4ECB5 /* Comment.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Comment.h; sourceTree = "<group>"; };
+		9C3CED9A2694165900A4ECB5 /* Comment.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Comment.m; sourceTree = "<group>"; };
 		9C85B43C268A64780013B603 /* PostCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PostCell.h; sourceTree = "<group>"; };
 		9C85B43D268A64780013B603 /* PostCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PostCell.m; sourceTree = "<group>"; };
 		9CA74A21267EA705009C8A89 /* fbu_Parstagram.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = fbu_Parstagram.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -202,6 +208,8 @@
 				9C3CED80269375AE00A4ECB5 /* ProfileViewController.m */,
 				9C3CED852693942900A4ECB5 /* EditViewController.h */,
 				9C3CED862693942900A4ECB5 /* EditViewController.m */,
+				9C3CED962694112900A4ECB5 /* CommentViewController.h */,
+				9C3CED972694112900A4ECB5 /* CommentViewController.m */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -226,6 +234,8 @@
 			children = (
 				9CBEF6A926802FDC00D6CE13 /* Post.h */,
 				9CBEF6AA26802FDC00D6CE13 /* Post.m */,
+				9C3CED992694165900A4ECB5 /* Comment.h */,
+				9C3CED9A2694165900A4ECB5 /* Comment.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -405,6 +415,7 @@
 			files = (
 				9C3CED8426938C9600A4ECB5 /* UserProfileCell.m in Sources */,
 				9CBEF69C267FA94D00D6CE13 /* LoginViewController.m in Sources */,
+				9C3CED982694112900A4ECB5 /* CommentViewController.m in Sources */,
 				9C3CED81269375AE00A4ECB5 /* ProfileViewController.m in Sources */,
 				9CA74A26267EA705009C8A89 /* AppDelegate.m in Sources */,
 				9CBEF6A326802C7F00D6CE13 /* PostViewController.m in Sources */,
@@ -415,6 +426,7 @@
 				9C3CED952693CF5300A4ECB5 /* ProfileHeaderView.m in Sources */,
 				9C3CED872693942900A4ECB5 /* EditViewController.m in Sources */,
 				9CA74A29267EA705009C8A89 /* SceneDelegate.m in Sources */,
+				9C3CED9B2694165900A4ECB5 /* Comment.m in Sources */,
 				9CBEF6AB26802FDC00D6CE13 /* Post.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
